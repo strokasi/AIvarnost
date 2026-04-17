@@ -1,4 +1,4 @@
-name: Deploy 
+name: Deploy
 
 on:
   push:
@@ -32,13 +32,18 @@ jobs:
           print('Done - replaced URL in prirocnik.html')
           PYEOF
 
+      - name: Prepare output folder
+        run: |
+          mkdir _site
+          cp prirocnik.html _site/index.html
+
       - name: Setup Pages
         uses: actions/configure-pages@v4
 
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
-          path: '.'
+          path: '_site'
 
       - name: Deploy to GitHub Pages
         id: deployment
