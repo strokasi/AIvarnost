@@ -20,7 +20,7 @@ jobs:
 
       - name: Inject secret URL into prirocnik
         env:
-          PA_URL: ${{ secrets.POWER_AUTOMATE_URL }}
+          PA_URL: ${{ secrets.POWER_AUTOMATE_URL_AIVARNOST }}
         run: |
           python3 << 'PYEOF'
           import os
